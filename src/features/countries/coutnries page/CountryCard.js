@@ -5,7 +5,7 @@ export const CountryCard = () => {
 
     return(
         <div className="country-card element">
-            <img  alt='country-flag' className="country-flag" src='https://flagcdn.com/w320/ar.png'></img>
+            <img  alt='country-flag' className="country-flag" src='https://flagcdn.com/ar.svg'></img>
             <div className="card-description">
                 <p className="country-name">Argentina</p>
                 <div className="country-infos">

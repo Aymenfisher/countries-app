@@ -1,0 +1,86 @@
+/*----------- country Page Styling ---------------*/
+
+.country-page {
+    box-sizing: border-box;
+    padding: 5vw 5vh;
+    display: grid;
+    grid-template: 10% 1fr / 1fr;
+    gap: 10%;
+}
+
+.back-link {
+    width: 120px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    padding: 0px 5px;
+}
+
+
+
+.main-country {
+    display: grid;
+    grid-template: 1fr / 40% 50%;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.country-flag-image {
+    width: 100%;
+    min-height: 320px;
+}
+
+.country-infos-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.name{
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.country-infos-main {
+    justify-self: center;
+    display: flex;
+    gap: 5vw;
+}
+
+.info{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.info-title {
+    font-weight: 600;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+
+.country-infos-aside{
+    display: grid;
+    grid-template: 1fr / 128px 1fr;
+    gap: 10px;
+}
+.border-countries{
+    gap: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.country-link{
+    border-radius: 5px;
+    padding: 5px 7px;
+    cursor: pointer;
+}
+.country-link p{
+    margin: 0;
+}
