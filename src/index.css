@@ -72,6 +72,10 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 5vw;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  z-index: 2;
 }
 #title{
   font-size: 1.8rem;
@@ -85,9 +89,6 @@ header {
   gap: 10px;
   font-size: 1rem;
   font-weight: 600;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
 }
 
 #theme-button {
@@ -105,4 +106,16 @@ header {
 }
 
 
+/*-- responsive design ---*/
 
+@media screen and (max-width:550px) {
+  #title{
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+}
+@media screen and (max-width:350px) {
+  #title{
+    font-size: 1rem;
+  }
+}

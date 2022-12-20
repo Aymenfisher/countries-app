@@ -1,14 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import darkBackArrow from '../../../icons/arrow-back-dark.svg';
 import lightBackArrow from '../../../icons/arrow-back-light.svg';
 import './countryPageStyle.css';
 
 
 export const Country = ({ theme }) => {
+    const navigate = useNavigate();
     return (
         <div className="country-page">
-            <div className="back-link element">
+            <div onClick={() => navigate(-1)} className="back-link element">
                 <img alt="back-arrow" src={theme === 'dark' ? darkBackArrow : lightBackArrow}></img> <p>Back</p>
             </div>
             <main className="main-country">
