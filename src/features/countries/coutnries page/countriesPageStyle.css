@@ -71,7 +71,7 @@
 /*dropdown*/
 
 .filters-dropdown {
-    width: 200px ;
+    width: 200px;
     height: 60px;
 }
 
@@ -161,7 +161,9 @@
 /* --------------------- */
 
 /* mobile design */
-@media screen and (max-width:1024px){ /* Tablet View */
+@media screen and (max-width:1024px) {
+
+    /* Tablet View */
     .main-countries {
         grid-template: 180px 1fr / 1fr;
         overflow: auto;
@@ -195,8 +197,8 @@
     .cards {
         justify-content: center;
     }
+
     .cards {
         grid-template-columns: repeat(auto-fill, 280px);
     }
 }
-

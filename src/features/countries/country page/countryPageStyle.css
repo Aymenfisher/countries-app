@@ -8,8 +8,12 @@
     gap: 10%;
     overflow: auto;
 }
+.navigations{
+    display: flex;
+    justify-content: space-between;
+}
 
-.back-link {
+.icon-link {
     width: 120px;
     height: 40px;
     display: flex;
@@ -19,7 +23,13 @@
     border-radius: 8px;
     padding: 0px 5px;
     cursor: pointer;
+    font-weight: 600;
 }
+
+.icon-link img{
+    height: 1.2rem;
+}
+
 
 
 
@@ -87,6 +97,7 @@
     border-radius: 5px;
     padding: 5px 7px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .country-link p {

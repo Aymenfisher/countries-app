@@ -104,6 +104,20 @@ header {
   background: url('./icons/moon.svg') no-repeat;
   background-size: 100% 100%;
 }
+.light .loading {
+  position: absolute;
+  width: 100vw;
+  top: 50%;
+  left: 50%;
+}
+.dark .loading {
+  position: absolute;
+  width: 100vw;
+  top: 50%;
+  left: 50%;
+  color: white;
+}
+
 
 
 /*-- responsive design ---*/
