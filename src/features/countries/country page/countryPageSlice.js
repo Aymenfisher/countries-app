@@ -2,23 +2,23 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
 export const loadCountry = createAsyncThunk('country/loadCountry',
-    async (countryName) => {
+    async (countryCode) => {
         
-        const response = await fetch(`https://restcountries.com/v2/name/${countryName}`);
+        const response = await fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`);
         const json = await response.json();
         const countryObj = json[0]
 
         const filteredCountryData = {
-            name: countryObj.name,
-            capital: countryObj.capital,
-            topLevelDomain: countryObj.topLevelDomain[0],
+            name: countryObj.name.common,
+            capital: countryObj.capital[0],
+            topLevelDomain: countryObj.tld[0],
             region: countryObj.region,
             subregion: countryObj.subregion,
             population: countryObj.population,
-            nativeName: countryObj.nativeName,
-            currencies: countryObj.currencies.map(currency => currency.name),
-            languages: countryObj.languages.map(language => language.name),
-            flag: countryObj.flag,
+            nativeName: Object.values(countryObj.name.nativeName)[0].official,
+            currencies: Object.values(countryObj.currencies).map(currency => currency.name),
+            languages: Object.values(countryObj.languages),
+            flag: countryObj.flags.svg,
             borders: countryObj.borders ? countryObj.borders : []
         }
         return filteredCountryData

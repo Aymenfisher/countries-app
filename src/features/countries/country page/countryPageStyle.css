@@ -35,7 +35,7 @@
 
 .main-country {
     display: grid;
-    grid-template: 1fr / 40% 50%;
+    grid-template: 1fr / 40% 1fr;
     gap: 30px;
     justify-content: space-between;
 }
@@ -62,14 +62,17 @@
 .country-infos-main {
     justify-self: center;
     display: flex;
-    gap: 5vw;
+    gap: 30px;
+
 }
 
 .info {
     display: flex;
     gap: 5px;
     align-items: center;
+
 }
+
 
 .info-title {
     font-weight: 600;

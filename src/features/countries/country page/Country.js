@@ -8,6 +8,7 @@ import { loadCountry, selectCountry,isLoadingCountry,hasErrorCountry } from "./c
 import { useSelector, useDispatch } from 'react-redux';
 import { Loading } from "../../../components/Loading";
 import { ErrorPage } from "../../../components/ErrorPage";
+import { NoResults } from "../../../components/NoResults";
 import './countryPageStyle.css';
 
 
@@ -31,6 +32,10 @@ export const Country = ({ theme }) => {
     if(hasError){
         return <ErrorPage/>
     }
+    if(countryInfos === undefined){
+        return <NoResults/>
+    }
+
 
 
 
@@ -60,16 +65,16 @@ export const Country = ({ theme }) => {
                         </div>
                         <div className="infos-two">
                             <p className="info top-level-domain"><span className="info-title">Top Level Domain: </span>{countryInfos.topLevelDomain}</p>
-                            <p className="info currencies"><span className="info-title">Currencies: </span>{countryInfos.currencies}</p>
-                            <p className="info languages"><span className="info-title">Languages: </span>{countryInfos.languages}</p>
+                            <p className="info currencies"><span className="info-title">Currencies: </span>{countryInfos.currencies.join(', ')}</p>
+                            <p className="info languages"><span className="info-title">Languages: </span>{countryInfos.languages.join(', ')}</p>
                         </div>
                     </div>
                     <div className="country-infos-aside">
                         <p className="info-title">Border Countries:</p>
                         <div className="border-countries">
                             {
-                                countryInfos.borders.map((border) =>{
-                                    return <Link to={`/countries/${border}`} className="country-link element" key={border}><div to='#'><p>{border}</p></div></Link>
+                                countryInfos.borders.map((cioc) =>{
+                                    return <Link to={`/countries/${cioc}`} className="country-link element" key={cioc}><div to='#'><p>{cioc}</p></div></Link>
                                 })
                             }
                             

@@ -50,10 +50,10 @@ body,
 }
 
 /* text color in themes */
-.light p, .light button {
+.light p, .light button, .light h1 {
   color: var(--Light-Mode-Text);
 }
-.dark p, .dark button{
+.dark p, .dark button, .dark h1{
   color: var(--Dark-Mode-Text-and-Light-Mode-Elements);
 }
 /* background colors in themes */
