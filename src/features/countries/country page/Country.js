@@ -13,7 +13,7 @@ import './countryPageStyle.css';
 
 
 export const Country = ({ theme }) => {
-    const {name} = useParams();
+    const {code} = useParams();
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export const Country = ({ theme }) => {
     const hasError = useSelector(hasErrorCountry);
 
     useEffect(() =>{
-        dispatch(loadCountry(name))
+        dispatch(loadCountry(code))
     },[navigate])
 
     if(isLoading){

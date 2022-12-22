@@ -8,7 +8,7 @@ import { loadAllCountries } from './features/countries/coutnries page/countriesS
 import { useDispatch } from 'react-redux';
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function App() {
         <Route path='/' element={<Navigate to='/countries'></Navigate>}/>
         <Route path='/countries' >
           <Route index element={<Countries theme={theme}></Countries>}></Route>
-          <Route path=':name' element={<Country theme={theme}/>}></Route>
+          <Route path=':code' element={<Country theme={theme}/>}></Route>
         </Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

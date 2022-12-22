@@ -9,11 +9,11 @@ export const loadAllCountries = createAsyncThunk(
         json.map(country =>
             countriesFiltered[country.name.common] = {
                 name: country.name.common,
-                capital: country.capital !== undefined ? country.capital : '',
+                capital: country.capital !== undefined ? country.capital : [],
                 region: country.region,
                 population: country.population,
-                flag: country.flags.svg !== undefined ? country.flags.svg : 'https://mainfacts.com/media/images/coats_of_arms/cr.svg',
-                cioc: country.cioc
+                flag: country.flags.svg !== undefined ? country.flags.svg : '',
+                code: country.cioc !== undefined ?  country.cioc : country.ccn3
             }
 
         )
@@ -58,9 +58,7 @@ const countries = createSlice({
 // selectors
 export const selectAllCountries = state => Object.values(state.countries.countries);
 
-export const selectCountriesByRegion = (state, region) => {
-    return Object.values(state.countries).filter(country => country.region === region)
-}
+
 
 export const isLoadingCountries = state => state.countries.isLoadingCountries
 export const hasErrorCountries = state => state.countries.hasErrorCountries

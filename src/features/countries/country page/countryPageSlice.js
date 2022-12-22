@@ -10,14 +10,14 @@ export const loadCountry = createAsyncThunk('country/loadCountry',
 
         const filteredCountryData = {
             name: countryObj.name.common,
-            capital: countryObj.capital[0],
-            topLevelDomain: countryObj.tld[0],
-            region: countryObj.region,
-            subregion: countryObj.subregion,
+            capital: countryObj.capital !== undefined ? countryObj.capital : [],
+            topLevelDomain: countryObj.tld[0] !== undefined ? countryObj.tld[0] : '',
+            region: countryObj.region !== undefined ? countryObj.region : '',
+            subregion: countryObj.subregion !== undefined ?  countryObj.subregion:'',
             population: countryObj.population,
-            nativeName: Object.values(countryObj.name.nativeName)[0].official,
-            currencies: Object.values(countryObj.currencies).map(currency => currency.name),
-            languages: Object.values(countryObj.languages),
+            nativeName: countryObj.name.nativeName ? Object.values(countryObj.name.nativeName)[0].official :[],
+            currencies: countryObj.currencies ? Object.values(countryObj.currencies).map(currency => currency.name) :[],
+            languages: countryObj.languages ? Object.values(countryObj.languages) :[],
             flag: countryObj.flags.svg,
             borders: countryObj.borders ? countryObj.borders : []
         }

@@ -1,36 +1,35 @@
-import React, { useRef, useState } from "react";
+import React, {  useState } from "react";
 import arrowDownDark from '../icons/arrow-down-dark.svg';
 import arrowDownLight from '../icons/arrow-down-light.svg';
 
-export const FiltersDropdown = ({ theme }) => {
+export const FiltersDropdown = ({ theme,regionFilter,setRegionFilter }) => {
     const [listDisplay, setListDisplay] = useState('hidden');
 
-    const currentFilter = useRef('All');
 
     const handleToggleVisibility = () => {
         listDisplay === 'visible' ? setListDisplay('hidden') : setListDisplay('visible');
     }
 
     const handleSelectFilter = (e) => {
-        currentFilter.current = e.target.value;
+        setRegionFilter(e.target.value.toLowerCase());
         handleToggleVisibility();
     }
 
 
 
     return (
-        <div className='filters-dropdown' >
+        <div className='filters-dropdown' aria-label="select" >
             <div className="select-header element" onClick={handleToggleVisibility} >
                 <p>Filter by Region</p>
                 <img id='arrow-down' src={theme === 'light' ? arrowDownLight : arrowDownDark} alt='dropdown-arrow'></img>
             </div>
             <div className={`select-body element ${listDisplay}`}>
-                <button value='All' className="select-option" onClick={handleSelectFilter}>All</button>
-                <button value='Africa' className="select-option" onClick={handleSelectFilter}>Africa</button>
-                <button value='America' className="select-option" onClick={handleSelectFilter}>America</button>
-                <button value='Asia' className="select-option" onClick={handleSelectFilter}>Asia</button>
-                <button value='Europe' className="select-option" onClick={handleSelectFilter}>Europe</button>
-                <button value='Oceania' className="select-option" onClick={handleSelectFilter}>Oceania</button>
+                <button value='all' className={`select-option ${regionFilter === 'all' ? ' active-filter' : ''}`} onClick={handleSelectFilter}>All</button>
+                <button value='africa' className={`select-option ${regionFilter === 'africa' ? ' active-filter' : ''}`} onClick={handleSelectFilter}>Africa</button>
+                <button value='americas' className={`select-option ${regionFilter === 'americas' ? ' active-filter' : ''}`} onClick={handleSelectFilter}>Americas</button>
+                <button value='asia' className={`select-option ${regionFilter === 'asia' ? ' active-filter' : ''}`} onClick={handleSelectFilter}>Asia</button>
+                <button value='europe' className={`select-option ${regionFilter === 'europe' ? ' active-filter' : ''}`} onClick={handleSelectFilter}>Europe</button>
+                <button value='oceania' className={`select-option ${regionFilter === 'oceania' ? ' active-filter' : ''}`} onClick={handleSelectFilter}>Oceania</button>
             </div>
         </div>
     )
